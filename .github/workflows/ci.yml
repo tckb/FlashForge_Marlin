@@ -1,0 +1,17 @@
+name: Build FF Marlin
+
+on:
+  push:
+    branches:
+    - fork-main
+    - release/*
+    
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ github.event.inputs.name }}"
