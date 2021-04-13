@@ -7,11 +7,14 @@ on:
     - release/*
     
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    runs-on: ubuntu-latest
-
-    steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+  build:
+     strategy:
+       matrix:
+          machine: [dreamer-nx,dreamer,inventor]
+          
+     runs-on: ubuntu-latest
+     steps:
+     - name: Install platformio 
+       run: echo "Hello ${{ github.event.inputs.name }}"
+     - name: Building ${{ matrix.machine }}
+       run:  echo "Hello ${{ matrix.machine }}"
