@@ -15,12 +15,10 @@ jobs:
      runs-on: ubuntu-latest
      steps:
      - name: Check out repository
-       uses: actions/checkout@v2
-     - name: Install platformio 
-       run: |
-         python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-         export PATH=$PATH:~/.platformio/penv/bin
-         platformio --version
+       uses: actions/checkout@v2         
      - name: Building ${{ matrix.machine }}
        run:  |
-        ./build_marlin.sh ${{ matrix.machine }}
+         python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+         export PATH=$PATH:~/.platformio/penv/ bin
+         platformio --version
+         ./build_marlin.sh ${{ matrix.machine }}
