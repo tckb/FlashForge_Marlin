@@ -20,4 +20,5 @@ jobs:
          export PATH=$PATH:~/.platformio/penv/bin
          platformio --version
      - name: Building ${{ matrix.machine }}
-       run:  echo "Hello ${{ matrix.machine }}"
+       run:  |
+        ./build_marlin.sh ${{ matrix.machine }}
