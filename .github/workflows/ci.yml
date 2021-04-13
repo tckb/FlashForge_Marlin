@@ -34,7 +34,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade platformio
       - name: Check out repository
-        uses: actions/checkout@v2         
+        uses: actions/checkout@v2   
+        with:
+          submodules: recursive
       - name: Building ${{ matrix.machine }}
         run:  |
          platformio --version
