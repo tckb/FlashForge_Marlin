@@ -14,6 +14,8 @@ jobs:
           
      runs-on: ubuntu-latest
      steps:
+     - name: Check out repository
+       uses: actions/checkout@v2
      - name: Install platformio 
        run: |
          python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
