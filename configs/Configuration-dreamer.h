@@ -1,4 +1,3 @@
-#define FF_DREAMER_MACHINE
 #define EXTRUDERS 2
 #define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
