@@ -5,8 +5,8 @@
 #define USE_ZMAX_PLUG
 #define Z_HOME_DIR  1
 #define LEVEL_CORNERS_INSET_LFRB { 40, 30, 40, 30 } // (mm) Left, Front, Right, Back insets
-#define X_MIN_POS  (-110.00-FF_TOOL_OFFSET)
-#define X_MAX_POS   (159.99-FF_TOOL_OFFSET)
+#define X_MIN_POS  -110.00
+#define X_MAX_POS   159.99
 #define Y_MAX_POS    75.00
 #define Y_MIN_POS   -75.00
 #define Z_MAX_POS 160

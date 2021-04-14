@@ -20,7 +20,7 @@
  *
  */
 
-#include machine_config.h
+#include "machine_config.h"
 
 #pragma once
 
@@ -1163,9 +1163,6 @@
 #endif
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#if NONE(X_MAX_POS, Y_MAX_POS,X_MIN_POS,Y_MIN_POS)
-#error Invalid travel limits, expecting all X_MAX_POS, Y_MAX_POS,X_MIN_POS,Y_MIN_POS
-#endif
 #define Z_MIN_POS 0
 
 #ifndef Z_MAX_POS
