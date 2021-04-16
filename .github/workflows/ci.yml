@@ -2,8 +2,8 @@ name: build-release
 
 on:
   push:
-#    branches:
-#    - release/*
+    branches:
+    - release/*
     tags:
       - '*'
     
