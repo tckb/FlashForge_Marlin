@@ -40,6 +40,13 @@ firmware_size = fw.tell()
 fw.seek(0)
 
 print('Flashing firmware: ', firmware)
+print('***********"')
+print('Ready to Flash')
+print('***********"')
+
+input('Switch off your printer and connect to this computer via USB. When '
+      'your are ready, press enter and switch on printer..')
+
 print('Searching for Flashforge printers ...')
 
 retry = 1
@@ -112,3 +119,5 @@ ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
 print(to_string(ret.tobytes()))
 ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
 print(to_string(ret.tobytes()))
+
+print('Flashing Completed, your printer will now reboot to the new firmware!')
