@@ -30,6 +30,7 @@ if len(sys.argv) < 1:
                    '/path/to/firmware.bin')
 
 firmware = sys.argv[1]
+stock_firmware = (sys.argv[2] == 'True')
 
 # calculate checksum of the firmware
 m = hashlib.md5()
@@ -41,7 +42,7 @@ fw.seek(0)
 
 print('Flashing firmware: ', firmware)
 print('***********"')
-print('Ready to Flash')
+print('Ready to Flash Stock?: ', stock_firmware)
 print('***********"')
 
 input('Switch off your printer and connect to this computer via USB. When '
@@ -76,8 +77,12 @@ printer.write(CONTROL_ENDPOINT_ADDR, '~M601 S0\r\n')
 
 # You need to restart the control loop, this is weird but this seems to work
 print('Starting control loop...')
-sleep(5)
-printer.write(CONTROL_ENDPOINT_ADDR, '~M601 S0\r\n')
+
+if not stock_firmware:
+    sleep(5)
+    printer.write(CONTROL_ENDPOINT_ADDR, '~M601 S0\r\n')
+else:
+    sleep(5)
 
 ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
@@ -86,9 +91,9 @@ print('Writing firmware...')
 # start fw write
 fw_write_str = "~M28 {} 0:/sys/{}\r\n".format(firmware_size, TARGET_FIRMWARE_NAME)
 printer.write(CONTROL_ENDPOINT_ADDR, fw_write_str)
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
 
 # write fw to endpoint
@@ -98,26 +103,26 @@ printer.write(BULK_OUT_ENDPOINT_ADDR, fw.read(),
 # finish fw write
 fw_write_str = "~M29 {}\r\n".format(firmware_checksum)
 printer.write(CONTROL_ENDPOINT_ADDR, fw_write_str)
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
 
 
 print('Triggering firmware...')
 # trigger fw flash on next boot?
 printer.write(CONTROL_ENDPOINT_ADDR, '~M600\r\n')
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
 
 print('Ending control loop...')
 # stop control
 printer.write(CONTROL_ENDPOINT_ADDR, '~M602\r\n')
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
-ret = printer.read(BULK_IN_ENDPOINT_ADDR, 1000)
+ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
 
 print('Flashing Completed, your printer will now reboot to the new firmware!')

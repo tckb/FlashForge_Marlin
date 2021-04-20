@@ -252,7 +252,13 @@ function search_flashforge_firmware() {
 
 function flash_firmware() {
   __msg_info "Flashing ${FINAL_FW}"
-  ${FLASHING_SCRIPT} ${FINAL_FW}
+
+  if [ $1 -eq 0 ]; then
+      ${FLASHING_SCRIPT} ${FINAL_FW} False
+    else
+      ${FLASHING_SCRIPT} ${FINAL_FW} True
+  fi
+
 }
 
 function main() {
@@ -262,11 +268,12 @@ function main() {
   then
      __msg_info "Restoring to stock flashforge firmware..."
      search_flashforge_firmware
+     flash_firmware 1
 
   else
     download_marlin_release
+    flash_firmware 0
   fi
-  flash_firmware
 }
 
 # Run main

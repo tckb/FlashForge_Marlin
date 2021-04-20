@@ -330,7 +330,7 @@ function start_build_process() {
 
 function flash_firmware() {
   __msg_info "Flashing ${FINAL_FW}"
-  ${FLASHING_SCRIPT} ${FINAL_FW}
+  ${FLASHING_SCRIPT} ${FINAL_FW} False
 }
 
 function main() {
