@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.8.2] - 2021-04-21
+
+### Added
+- Enabled G26 Mesh Validation patterns
+  - enabled g26 in order to test the mesh bed leveling
+  
+### Changed
+
+- Updated the mesh inset to fit the bed
+  - with an inset 20 the 3rd grid wouldn't fit the bed, updated it to 5.
+
+### Fixed
+
+#### Inventor, Dreamer
+- Extruder swap wouldn't properly because of missing definition, this has been fixed.  
+
+
 ## [0.8.1] - 2021-04-16
 
 ### Added
