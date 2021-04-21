@@ -97,8 +97,7 @@ ret = printer.read(BULK_IN_ENDPOINT_ADDR, 5000)
 print(to_string(ret.tobytes()))
 
 # write fw to endpoint
-printer.write(BULK_OUT_ENDPOINT_ADDR, fw.read(),
-              5000)  # seems like i was getting timeouts below about 1500ms
+printer.write(BULK_OUT_ENDPOINT_ADDR, fw.read(), 15000)
 
 # finish fw write
 fw_write_str = "~M29 {}\r\n".format(firmware_checksum)
