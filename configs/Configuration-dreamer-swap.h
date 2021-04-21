@@ -5,3 +5,4 @@
 
 #define X_MAX_POS   (156.99-34)
 #define X_MIN_POS  (-113.00-34)
+#define FF_EXTRUDER_SWAP
