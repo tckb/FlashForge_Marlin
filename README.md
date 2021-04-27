@@ -42,10 +42,15 @@ The scripts are written to work well with the following platforms -
 - Dreamer (Untested)
 - Inventor (Untested)
 
+## Want to support me ?
+
+
+<a href="https://www.buymeacoffee.com/tckb"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee?&emoji=&slug=tckb&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+
+
 ## Credits
 
 - This repo is a fork of the excellent effort made by  [@moonglow](https://github.com/moonglow), consider supporting his work.  
-
 
 #### Disclaimer
 The firmware is still in an experimental state and even though it could  work, please exercise your own judgement on using it. I am not liable, nor I bare responsibility in the event of a failure. 
