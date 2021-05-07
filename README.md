@@ -53,4 +53,4 @@ The scripts are written to work well with the following platforms -
 - This repo is a fork of the excellent effort made by  [@moonglow](https://github.com/moonglow), consider supporting his work.  
 
 #### Disclaimer
-The firmware is still in an experimental state and even though it could  work, please exercise your own judgement on using it. I am not liable, nor I bare responsibility in the event of a failure. 
+All though the firmware might work on the supported printer just fine, I still require [testers](https://github.com/tckb/FlashForge_Marlin/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) to confirm. Please exercise your own judgement on using it. I am not liable, nor I bare responsibility in the event of a failure but, I *will* support you in fixing should there be any problems. 
