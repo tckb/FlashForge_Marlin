@@ -37,8 +37,8 @@ EX1 right extruder heater + fan
 EX2 left extruder heater + fan
 */
 
-/* 
-thermosensor K-couple ADS1118 
+/*
+thermosensor K-couple ADS1118
 
 */
 #define USER_LED1_PIN   PA8
@@ -56,7 +56,7 @@ thermosensor K-couple ADS1118
 #define DIGIPOTS_I2C_SCL                    PF12    /* shared CLK */
 #define DIGIPOTS_I2C_SDA_X                  PB5     /* X */
 #define DIGIPOTS_I2C_SDA_Y                  PB9     /* Y */
-#define DIGIPOTS_I2C_SDA_Z                  PF0     /* Z */  
+#define DIGIPOTS_I2C_SDA_Z                  PF0     /* Z */
 #define DIGIPOTS_I2C_SDA_E0                 PA0     /* A */
 #define DIGIPOTS_I2C_SDA_E1                 PF10    /* B */
 
@@ -72,7 +72,7 @@ thermosensor K-couple ADS1118
 #if 0
 /* I2C eeprom ( 0xA0 ) and PCA9632 ( 0xC4 ) RGB PWM IC */
 #define I2C_SW_SDA                          PB1
-#define I2C_SW_SCK                          PF12                  
+#define I2C_SW_SCK                          PF12
 #endif
 
 #define LED_PIN                             PG1 /* keep alive led */
@@ -128,9 +128,9 @@ thermosensor K-couple ADS1118
 /* --------------- */
 #if ENABLED( FF_EXTRUDER_SWAP )
 /* swap it for beter visual observ */
-#define E0_STEP_PIN                         PF8 
-#define E0_DIR_PIN                          PF7 
-#define E0_ENABLE_PIN                       PF9 
+#define E0_STEP_PIN                         PF8
+#define E0_DIR_PIN                          PF7
+#define E0_ENABLE_PIN                       PF9
 
 #define E1_STEP_PIN                         PC2
 #define E1_DIR_PIN                          PC1
@@ -182,7 +182,7 @@ thermosensor K-couple ADS1118
 #else
 #define HEATER_CHAMBER_PIN                  USER_LED1_PIN
 #define FAN2_PIN                            PE1  /* FF rearcase fan */
-#endif           
+#endif
 
 /* part colling fan aka FAN0 */
 #define FAN_PIN                             PF5
@@ -210,3 +210,7 @@ thermosensor K-couple ADS1118
 
 /* filament runout */
 #define FIL_RUNOUT_PIN                      -1
+
+
+/* Servo pin for BLTouch */
+#define SERVO0_PIN                         -1
